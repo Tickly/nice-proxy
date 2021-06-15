@@ -1,0 +1,19 @@
+{
+  "name": "vue-cli-plugin-nice-proxy",
+  "version": "1.0.0",
+  "description": "不重启切换代理",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "proxy": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "inquirer": "^8.1.0"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.5"
+  }
+}

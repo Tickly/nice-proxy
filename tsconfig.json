@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./bin",
+    "allowJs": false,
+    "target": "ES5"
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

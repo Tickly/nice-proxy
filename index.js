@@ -1,4 +1,3 @@
-const { program } = require('commander')
 const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
@@ -135,83 +134,94 @@ const required = value => {
   return value ? true : '必填'
 }
 
-program
-  .command('add')
-  .description('添加代理')
-  .action(() => {
-    inquirer
-      .prompt([
-        {
-          name: 'name',
-          message: '请输入代理名称，例如：张三',
-          validate: required
-        },
-        {
-          name: 'path',
-          message: '请输入代理路径，例如：zhangsan',
-          validate: required
-        },
-        {
-          name: 'target',
-          message: '请输入代理目标，例如：http://127.0.0.1:8080',
-          validate: required,
-        },
-      ])
-      .then(async ({ name, path, target }) => {
-        const tp = new ProxyTarget(name, path, target)
-        const list = await np.get()
-        list.push(tp)
-        np.saveListFile(list)
-      })
-  })
+
+module.exports = (api, options) => {
+
+      const { program } = require('commander')
+
+      const argv = [
+        'node',
+        './commander.js',
+      ].concat(process.argv.slice(2))
 
 
+      program.parse(argv)
 
-program
-  .command('list')
-  .alias('ls')
-  .description('列出所有代理')
-  .action(async () => {
-    /**
-     * @type {ProxyTarget[]}
-     */
-    const list = await np.get()
-    const used = getUsed()
-    console.log()
-    for (const item of list) {
-      const isUsed = item.path === used ? '*' : ' '
-      const alias = `${item.name}(${item.path})`.padEnd(15)
-      console.log(`${isUsed} ${alias} ${item.target}`)
-    }
-    console.log()
-  })
+      // program
+      //   .command('add')
+      //   .description('添加代理')
+      //   .action(() => {
+      //     inquirer
+      //       .prompt([
+      //         {
+      //           name: 'name',
+      //           message: '请输入代理名称，例如：张三',
+      //           validate: required
+      //         },
+      //         {
+      //           name: 'path',
+      //           message: '请输入代理路径，例如：zhangsan',
+      //           validate: required
+      //         },
+      //         {
+      //           name: 'target',
+      //           message: '请输入代理目标，例如：http://127.0.0.1:8080',
+      //           validate: required,
+      //         },
+      //       ])
+      //       .then(async ({ name, path, target }) => {
+      //         const tp = new ProxyTarget(name, path, target)
+      //         const list = await np.get()
+      //         list.push(tp)
+      //         np.saveListFile(list)
+      //       })
+      //   })
 
-program
-  .command('change')
-  .description('切换代理')
-  .action(async () => {
-    const list = await np.get()
-    const used = getUsed()
+      // program
+      //   .command('list')
+      //   .alias('ls')
+      //   .description('列出所有代理')
+      //   .action(async () => {
+      //     /**
+      //      * @type {ProxyTarget[]}
+      //      */
+      //     const list = await np.get()
+      //     const used = getUsed()
+      //     console.log()
+      //     for (const item of list) {
+      //       const isUsed = item.path === used ? '*' : ' '
+      //       const alias = `${item.name}(${item.path})`.padEnd(15)
+      //       console.log(`${isUsed} ${alias} ${item.target}`)
+      //     }
+      //     console.log()
+      //   })
 
-    inquirer
-      .prompt({
-        name: 'used',
-        type: 'list',
-        message: '请选择要切换的代理',
-        choices: list.map(v => {
-          return {
-            name: v.name,
-            value: v.path,
-          }
-        }),
-        default: used,
-      })
-      .then(answers => {
-        np.saveLocalFile({
-          path: answers.used
-        })
-      })
-  })
+      // program
+      //   .command('change')
+      //   .description('切换代理')
+      //   .action(async () => {
+      //     const list = await np.get()
+      //     const used = getUsed()
+
+      //     inquirer
+      //       .prompt({
+      //         name: 'used',
+      //         type: 'list',
+      //         message: '请选择要切换的代理',
+      //         choices: list.map(v => {
+      //           return {
+      //             name: v.name,
+      //             value: v.path,
+      //           }
+      //         }),
+      //         default: used,
+      //       })
+      //       .then(answers => {
+      //         np.saveLocalFile({
+      //           path: answers.used
+      //         })
+      //       })
+      //   })
 
 
-program.parse(process.argv)
+}

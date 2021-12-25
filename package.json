@@ -2,16 +2,19 @@
   "name": "nice-proxy",
   "version": "1.0.0",
   "description": "不重启切换代理",
-  "bin": "bin/index.js",
+  "bin": "dist/bin/index.js",
+  "main": "dist/lib/use-nice-proxy.js",
   "scripts": {
+    "dev": "tsc -w",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "proxy": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Tickly",
   "license": "ISC",
   "dependencies": {
+    "@types/inquirer": "^8.1.3",
     "commander": "^7.2.0",
+    "copy-dir": "^1.3.0",
     "inquirer": "^8.1.0"
   },
   "devDependencies": {

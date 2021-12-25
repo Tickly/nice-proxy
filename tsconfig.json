@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "./bin",
+    "outDir": "dist",
     "allowJs": false,
-    "target": "ES5"
+    "target": "ES5",
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*.ts"

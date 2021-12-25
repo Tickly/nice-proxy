@@ -81,6 +81,7 @@ var ConfigJson = /** @class */ (function () {
     return ConfigJson;
 }());
 var program = new commander_1.Command();
+program.version(require('../../package.json').version);
 var NiceProxyDir = path_1.default.resolve(process.cwd(), 'nice-proxy');
 var listJsonStore = new JsonStore_1.default(path_1.default.resolve(NiceProxyDir, 'proxy-list.json'));
 var configJsonStore = new JsonStore_1.default(path_1.default.resolve(NiceProxyDir, 'proxy-config.json'));
@@ -168,6 +169,7 @@ program
 });
 program
     .command('change')
+    .alias('use')
     .description('切换代理')
     .action(function () { return __awaiter(void 0, void 0, void 0, function () {
     var list, listJson, targets;
@@ -201,6 +203,7 @@ program
                                 configJson = new ConfigJson(config);
                                 configJson.target = answers.target;
                                 configJsonStore.set(configJson.getContent());
+                                console.log('切换代理成功');
                                 return [2 /*return*/];
                         }
                     });

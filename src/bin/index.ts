@@ -53,6 +53,8 @@ class ConfigJson {
 
 const program = new Command()
 
+program.version(require('../../package.json').version)
+
 const NiceProxyDir = path.resolve(process.cwd(), 'nice-proxy')
 
 const listJsonStore = new JsonStore(path.resolve(NiceProxyDir, 'proxy-list.json'))
@@ -138,6 +140,7 @@ program
 
 program
   .command('change')
+  .alias('use')
   .description('切换代理')
   .action(async () => {
     // console.log('change proxy')
@@ -167,6 +170,8 @@ program
         configJson.target = answers.target
 
         configJsonStore.set(configJson.getContent())
+
+        console.log('切换代理成功')
       })
   })
 

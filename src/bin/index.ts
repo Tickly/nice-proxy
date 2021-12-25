@@ -6,7 +6,6 @@ import path from 'path'
 import copydir from 'copy-dir'
 import inquirer from 'inquirer'
 import JsonStore from './JsonStore'
-import pkg from '../../package.json'
 
 class ListJson {
   private content: {
@@ -53,8 +52,6 @@ class ConfigJson {
 }
 
 const program = new Command()
-// 版本号
-program.version(pkg.version)
 
 const NiceProxyDir = path.resolve(process.cwd(), 'nice-proxy')
 
@@ -66,7 +63,7 @@ program
   .description('初始化')
   .action(() => {
     // console.log('init')
-    const from = path.resolve(__dirname, '../nice-proxy')
+    const from = path.resolve(__dirname, '../../nice-proxy')
     const to = NiceProxyDir
     copydir.sync(from, to)
     console.log('初始化成功')

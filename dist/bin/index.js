@@ -81,7 +81,6 @@ var ConfigJson = /** @class */ (function () {
     return ConfigJson;
 }());
 var program = new commander_1.Command();
-program.version('1.0.0');
 var NiceProxyDir = path_1.default.resolve(process.cwd(), 'nice-proxy');
 var listJsonStore = new JsonStore_1.default(path_1.default.resolve(NiceProxyDir, 'proxy-list.json'));
 var configJsonStore = new JsonStore_1.default(path_1.default.resolve(NiceProxyDir, 'proxy-config.json'));
@@ -90,7 +89,7 @@ program
     .description('初始化')
     .action(function () {
     // console.log('init')
-    var from = path_1.default.resolve(__dirname, '../nice-proxy');
+    var from = path_1.default.resolve(__dirname, '../../nice-proxy');
     var to = NiceProxyDir;
     copy_dir_1.default.sync(from, to);
     console.log('初始化成功');

@@ -3,7 +3,8 @@
     "outDir": "dist",
     "allowJs": false,
     "target": "ES5",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "include": [
     "./src/**/*.ts"

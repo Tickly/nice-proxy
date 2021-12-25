@@ -6,6 +6,7 @@ import path from 'path'
 import copydir from 'copy-dir'
 import inquirer from 'inquirer'
 import JsonStore from './JsonStore'
+import pkg from '../../package.json'
 
 class ListJson {
   private content: {
@@ -52,8 +53,8 @@ class ConfigJson {
 }
 
 const program = new Command()
-
-program.version('1.0.0')
+// 版本号
+program.version(pkg.version)
 
 const NiceProxyDir = path.resolve(process.cwd(), 'nice-proxy')
 

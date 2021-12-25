@@ -13,7 +13,7 @@
 
 # 安装
 
-`yarn add nice-proxy`
+`yarn add nice-proxy -D`
 
 # 使用
 

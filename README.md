@@ -2,7 +2,14 @@
 
 > 刚起步的项目，功能并不是很完善，欢迎提意见。
 
-每次切换代理难道都要重启任务吗？大可不必！
+在进行多人合作项目的时候，通常使用`webpack-dev-server`来进行代理设置。
+
+总是会遇到下面这些问题。
+
+- 当需要跟另一个人对接的时候，切换代理就要重启项目，如果项目较大，启动速度较慢，会造成不必要的等待时间。
+- 偶尔会发现，我怎么连到张三了，我明明跟李四在对接。原来是别人提交了代码，覆盖了你之前的设置。
+
+那么你可以来试试`nice-proxy`
 
 # 安装
 
@@ -14,9 +21,10 @@
 
 `npx nice-proxy init`
 
-该命令会在项目根目录生成一个`nice-proxy`文件夹。
-
-其中`proxy-list.json`为代理列表文件。`proxy-config.json`为你当前使用的代理配置。
+> 该命令会在项目根目录生成一个`nice-proxy`文件夹。  
+> `proxy-list.json`为代理列表文件。  
+> `proxy-config.json`为你当前使用的代理配置。(此文件不要提交到`[GIT][SVN]`)  
+> 具体可以看生成的`readme`文档
 
 ## 配置 webpack-dev-server
 
@@ -50,8 +58,6 @@ module.exports = {
 
 ## list 列出所有代理
 
-下面的命令都可以
-
 - `npx nice-proxy list`
 - `npx nice-proxy ls`
 
@@ -67,3 +73,7 @@ module.exports = {
 - `npx nice-proxy use`
 
 执行该命令后，界面会列出当前所有代理让你选择。
+
+# FAQ
+
+`vue-cli`目前使用的`webpack-dev-server`版本不高，在配置`proxy`的时候，`target`参数不能缺少。

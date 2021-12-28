@@ -10,12 +10,9 @@ var getContent = function (filename) {
     return fs_1.default.readFileSync(path_1.default.resolve(process.cwd(), 'nice-proxy', filename), { encoding: 'utf-8' });
 };
 var useNiceProxy = function (req) {
-    console.log(Date.now());
     try {
         var config = JSON.parse(getContent('proxy-config.json'));
         var list = JSON.parse(getContent('proxy-list.json'));
-        console.log(config);
-        console.log(list);
         return Reflect.get(list, config.target);
     }
     catch (err) {

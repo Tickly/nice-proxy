@@ -61,11 +61,15 @@ module.exports = {
 - `npx nice-proxy list`
 - `npx nice-proxy ls`
 
+![](https://segmentfault.com/img/bVcWWXa)
+
 ## add 添加代理
 
 - `npx nice-proxy add`
 
 执行该命令后，界面会继续让你输入要添加的代理的相关信息。
+
+![](https://segmentfault.com/img/bVcWWXb)
 
 ## change 切换代理
 
@@ -73,6 +77,9 @@ module.exports = {
 - `npx nice-proxy use`
 
 执行该命令后，界面会列出当前所有代理让你选择。
+
+![](https://segmentfault.com/img/bVcWWXi)
+![](https://segmentfault.com/img/bVcWWXj)
 
 # FAQ
 

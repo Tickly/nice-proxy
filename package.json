@@ -4,6 +4,10 @@
   "description": "不重启切换代理",
   "bin": "dist/bin/index.js",
   "main": "dist/lib/use-nice-proxy.js",
+  "keywords": [
+    "proxy",
+    "webpack-dev-server"
+  ],
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",

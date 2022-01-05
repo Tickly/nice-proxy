@@ -93,7 +93,7 @@ program
     var from = path_1.default.resolve(__dirname, '../../nice-proxy');
     var to = NiceProxyDir;
     copy_dir_1.default.sync(from, to);
-    console.log('初始化成功');
+    console.log('初始化成功，一定要把 /nice-proxy/proxy-config.json 这个文件在版本控制里添加忽略。');
 });
 program
     .command('list')

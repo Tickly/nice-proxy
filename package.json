@@ -1,6 +1,6 @@
 {
   "name": "nice-proxy",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "不重启切换代理",
   "bin": "dist/bin/index.js",
   "main": "dist/lib/use-nice-proxy.js",

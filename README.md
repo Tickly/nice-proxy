@@ -81,6 +81,10 @@ module.exports = {
 ![](https://segmentfault.com/img/bVcWWXi)
 ![](https://segmentfault.com/img/bVcWWXj)
 
+# TODO
+
+- [x] 当有新的前端加入项目后，proxy-list文件已生成，但是proxy-config文件是没有的，需要有个命令能解决这个问题。
+
 # FAQ
 
 `vue-cli`目前使用的`webpack-dev-server`版本不高，在配置`proxy`的时候，`target`参数不能缺少。
